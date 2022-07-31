@@ -1,1 +1,14 @@
-All authors
+<h2>Search Items</h2>
+<form action="/items" method="GET">
+    <label>Name</label>
+    <input type="text" name="name"  value="<%= searchOptions.name %>">
+    <button type="submit">Search</button>
+</form>
+
+<br> 
+
+<% items.forEach(item => { %>
+    <div><%= item.name %></div>
+<% }) %>
+
+<!-- <button type="">Clear Cart</button> -->
