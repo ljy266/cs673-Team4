@@ -55,7 +55,7 @@ export const App: React.FC = () =>{
     //There should be a useEffect on groceryList and search items so that this component rerenders to show the correct items 
 
     function setSearchItemCallback (items: searchItemResults[]) {
-      console.log(searchItems)
+      // console.log(searchItems)
       setSearchItem(items)
     }
 
@@ -67,7 +67,7 @@ export const App: React.FC = () =>{
 
     function setGroceryListDeleteCallback (item: searchItemResults) {
       const index = groceryList.indexOf(item);
-      console.log(index)
+      // console.log(index)
       if (index > -1) {
         const tempArray = setGroceryList( (prevState) => { 
         const tempArray = [...prevState]

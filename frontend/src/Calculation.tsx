@@ -5,6 +5,8 @@ import { styled } from '@mui/material/styles';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import mockStores from "./mockStores.json"
 import StoreCardComponent from './Components/StoreCardComponent';
+import axios from 'axios';
+
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -31,18 +33,18 @@ const CalculationPage = () => {
     const location = useLocation();
     const state = location.state as CustomizedState; // Type Casting, then you can get the params passed via router
     const { groceryListState } = state;
-    let storeData: any = mockStores; //delete line when correct data is entered
+    const [storeData, setStoreData] = React.useState<any>([])
    
     React.useEffect(() => {
         //axios call here and reassign storeData to correct data
-        
-    }, [])
-
-    console.log(storeData[0])
+        axios.get("http://localhost:3000/items/calculation").then(resp => {
+        setStoreData(resp.data);
+        });
+      }, [])
 
     return (<div>
         <ResponsiveAppBar/>
-        <StoreCardComponent title={storeData[0].name} description={storeData[0].description} imagePath={storeData[0].imagePath} total={storeData[0].total} groceryList={storeData[0].groceries} />
+        {(storeData.length > 0) && <StoreCardComponent title={storeData[0].name} description={storeData[0].description} imagePath={storeData[0].imagePath} total={storeData[0].total} groceryList={storeData[0].groceries} />}
     </div>) 
 
 }
