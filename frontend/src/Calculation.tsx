@@ -35,6 +35,7 @@ const CalculationPage = () => {
    
     React.useEffect(() => {
         //axios call here and reassign storeData to correct data
+        
     }, [])
 
     console.log(storeData[0])
