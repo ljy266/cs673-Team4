@@ -10,6 +10,7 @@ const cors = require('cors');
 
 const indexRouter = require('./routes/index')
 const itemRouter = require('./routes/items')
+const storeRouter = require('./routes/stores')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -41,27 +42,10 @@ app.use(cors(corsOptions));
 
 app.use('/', indexRouter)
 app.use('/items', itemRouter)
+app.use('/stores', storeRouter)
 
 app.listen(process.env.PORT || 3000)
 
-
-
-// const express = require('express')
-// const app = express()
-// const port = 3000
-// const cors = require('cors');
-
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     callback(null, true);
-//   },
-//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-//   allowedHeaders: ["Access-Control-Allow-Origin", "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
-//   credentials: true
-// };
-
-// app.options('*', cors(corsOptions));
-// app.use(cors(corsOptions));
 
 
 // app.get('/', (req, res) => {

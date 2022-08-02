@@ -13,8 +13,18 @@ const storeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    storeImageName: {
+        type: String,
+        required: true
+    },
+    item: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Item'
+
+    }
 
 })
 
 
-module.exports = mongoose.model('Book', storeSchema)
+module.exports = mongoose.model('Store', storeSchema)
