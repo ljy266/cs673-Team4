@@ -23,7 +23,7 @@ const SearchComponent = ({ searchItemCallback }: SearchComponentProps) => {
       if (searchValue != '') {
 
         // Send Axios request here
-        axios.get("http://localhost:3000/items/").then(resp => {
+        axios.get("/api/item", { params: { answer: searchValue } }).then(resp => {
           console.log('axios call')
           searchItemCallback(resp.data)
         });

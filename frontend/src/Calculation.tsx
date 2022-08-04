@@ -37,7 +37,7 @@ const CalculationPage = () => {
    
     React.useEffect(() => {
         //axios call here and reassign storeData to correct data
-        axios.get("http://localhost:3000/items/calculation").then(resp => {
+        axios.get("/api/store").then(resp => {
         setStoreData(resp.data);
         });
       }, [])
